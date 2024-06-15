@@ -1,9 +1,13 @@
 # This is a small project to get familiar with the very basic ideas
 # of climate change modelling and Github Actions
 
-def energyBalance( albedo, emissivity, swr ):
-    return 1
+def energyBalance( albedo=1, emissivity=1, swr=1 ):
+    """
+    Implementation of the stationary balance of incoming
+    and outgoing radiation
+    """
+    return albedo * emissivity * swr
 
 if __name__ == "__main__":
-    temperature = energyBalance( 0.3, 0.6, 340 )
+    temperature = energyBalance( 1, 1, 1 )
     print( temperature)
