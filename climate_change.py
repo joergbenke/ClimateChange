@@ -11,5 +11,5 @@ def energy_balance( albedo=1, emissivity=1, swr=1 ):
     return albedo * emissivity * swr
 
 if __name__ == "__main__":
-    temperature = energyBalance( 1, 1, 1 )
+    temperature = energy_balance( 1, 1, 1 )
     print( temperature)
