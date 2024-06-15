@@ -1,5 +1,7 @@
-# This is a small project to get familiar with the very basic ideas
-# of climate change modelling and Github Actions
+"""
+This is a small project to get familiar with the very basic ideas
+of climate change modelling and Github Actions
+"""
 
 def energy_balance( albedo=1, emissivity=1, swr=1 ):
     """
