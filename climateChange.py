@@ -1,3 +1,6 @@
+# This is a small project to get familiar with the very basic ideas
+# of climate change modelling and Github Actions
+
 def energyBalance( albedo, emissivity, swr ):
     return 1
 
