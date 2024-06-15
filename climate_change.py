@@ -4,7 +4,7 @@ of climate change modelling and Github Actions
 """
 
 
-def energy_balance(albedo=1, emissivity=1, swr=1):
+def energy_balance(albedo=1, emissivity=1, swr=2):
     """
     Implementation of the stationary balance of incoming
     and outgoing radiation
