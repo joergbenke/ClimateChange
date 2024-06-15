@@ -32,12 +32,8 @@ jobs:
     - name: Analysing the code with Flake8
       run: |
         flake8 $(git ls-files '*.py')
+    - name: Test with pytest
+      run: |
+        pip install pytest pytest-cov
+        pytest climate_change.py --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
 
-  test:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.10", "3.11", "3.12"]
-
-    steps:
-      - uses: actions/checkout@v4
