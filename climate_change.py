@@ -14,15 +14,17 @@ def energy_balance(albedo=1, emissivity=1, swr=2):
 #
 # Testregion
 
+
 def test_energy_balance():
     """
-    Test with 
+    Test with some normal parameters
     """
     assert energy_balance(1, 1, 2) == 2
 
+    
 def test_energy_balance_zeroes():
     """
-    Test with 
+    Test with all 0 parameters
     """
     assert energy_balance(0, 0, 0) == 2
 
