@@ -21,7 +21,7 @@ def test_energy_balance():
     """
     assert energy_balance(1, 1, 2) == 2
 
-    
+
 def test_energy_balance_zeroes():
     """
     Test with all 0 parameters
