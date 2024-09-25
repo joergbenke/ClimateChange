@@ -26,7 +26,7 @@ def test_energy_balance_zeroes():
     """
     Test with all 0 parameters
     """
-    assert energy_balance(0, 0, 0) == 2
+    assert energy_balance(0, 0, 0) == 0
 
 
 if __name__ == "__main__":
