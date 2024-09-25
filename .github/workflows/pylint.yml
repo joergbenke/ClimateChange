@@ -44,9 +44,9 @@ jobs:
 
     - name: Test with pytest
       run: |
-        pytest climate_change.py --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
+        # pytest climate_change.py --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
         # pytest climate_change.py
-        # pytest --cov=$(git ls-files '*.py')
-        coverage run -m pytest
+        # pytest --cov --cov-report=html:.
+        coverage run -m pytest .
         coverage report -m
         
