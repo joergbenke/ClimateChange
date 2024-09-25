@@ -22,6 +22,6 @@ def test_energy_balance_zeroes():
 
 
 if __name__ == "__main__":
-    test_energy_blance()
-    test_energy_blance_zeroes()
+    test_energy_balance()
+    test_energy_balance_zeroes()
     print(energy_balance(1, 1, 1))
