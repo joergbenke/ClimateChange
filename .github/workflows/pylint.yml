@@ -36,17 +36,17 @@ jobs:
 
     - name: Analysing the code with pylint
       run: |
-        pylint $(git ls-files '*.py') 
+        pylint src/$(git ls-files '*.py') 
 
     - name: Analysing the code with Flake8
       run: |
-        flake8 $(git ls-files '*.py')
+        flake8 src/$(git ls-files '*.py')
 
     - name: Test with pytest
       run: |
         # pytest climate_change.py --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
         # pytest climate_change.py
         # pytest --cov --cov-report=html:.
-        coverage run -m pytest climate_change.py
+        coverage run -m pytest src/climate_change.py
         coverage report -m
         
