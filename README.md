@@ -1,10 +1,16 @@
 This repo is a test repo for learning very basics facts of climate change and
-to create a whole Github workflow around it.
+to create a whole Github workflow around it. There is at the moment only one file
+which implements the radiation balance. The implementation language is Python 3.
 
 
-Repo: https://github.com/joergbenke/ClimateChange.git
-Packages needed:
-	 - Python >= 3.10
+Where is the Repo:
+      - https://github.com/joergbenke/ClimateChange.git
+
+Which packages do you need:
+      - Python >= 3.10
+	 
 How to install:
     - git clone https://github.com/joergbenke/ClimateChange.git
-    
+
+How to run:
+    - python3 climate_change
