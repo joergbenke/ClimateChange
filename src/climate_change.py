@@ -11,7 +11,18 @@ def energy_balance(albedo=1, emissivity=1, swr=2):
     Implementation of the stationary balance of incoming
     and outgoing radiation
     """
+
     return albedo * emissivity * swr
+
+
+def absorbed_shortwave_radiation(albedo=0.299):
+    """
+    Implementation of the stationary balance of incoming
+    and outgoing radiation
+    """
+    Q = 341.3  # global mean insulation
+    
+    return (1 - albedo) * Q
 
 
 def black_body_radiation(temperature):
@@ -38,6 +49,9 @@ def temperature_black_body_radiator(olr):
 if __name__ == "__main__":
     print(energy_balance(1, 1, 1))
 
+    # Short wave radiation implementation
+    print(absorbed_shortwave_radiation(0.299))
+    
     print(black_body_radiation(288))
     print(black_body_radiation(292))
     # Output of the temperature of the black body radiator earth with
