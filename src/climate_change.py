@@ -1,3 +1,5 @@
+import math as m
+
 """
 This is a small project to get familiar with the very basic ideas
 of climate change modelling and Github Actions
@@ -11,25 +13,33 @@ def energy_balance(albedo=1, emissivity=1, swr=2):
     """
     return albedo * emissivity * swr
 
-#
-# Testregion
+
+def black_body_radiation(temperature):
+    """
+    Calculation of the black body radiation of the earth
+    (earth is assumed to be an approximated black body radiator)
+    """
+    STEFAN_BOLTZMANN_CONSTANT = 5.67 * 10 ** (-8)
+    TAU = 0.61  # transmissivity of the atmosphere 
+    
+    return STEFAN_BOLTZMANN_CONSTANT * TAU * temperature ** 4
 
 
-def test_energy_balance():
+def temperature_black_body_radiator(olr):
     """
-    Test with some normal parameters
+    Calculate the temprature of a black body radiator with the help of 
+    the outgoing longwave radiation (olr) 
     """
-    assert energy_balance(1, 1, 2) == 2
-
-
-def test_energy_balance_zeroes():
-    """
-    Test with all 0 parameters
-    """
-    assert energy_balance(0, 0, 0) == 0
+    STEFAN_BOLTZMANN_CONSTANT = 5.67 * 10 ** (-8)
+    
+    return (olr / STEFAN_BOLTZMANN_CONSTANT) ** (1/4)
 
 
 if __name__ == "__main__":
-    test_energy_balance()
-    test_energy_balance_zeroes()
     print(energy_balance(1, 1, 1))
+
+    print(black_body_radiation(288))
+    print(black_body_radiation(292))
+    # Output of the temperature of the black body radiator earth with
+    # given outgoing longwave radiation
+    print(temperature_black_body_radiator(238.5))
