@@ -11,9 +11,9 @@ def absorbed_shortwave_radiation(albedo=0.299):
     Implementation of the stationary balance of incoming
     and outgoing radiation
     """
-    Q = 341.3  # global mean insulation
+    iswr = 341.3  # global mean insulation
 
-    return (1 - albedo) * Q
+    return (1 - albedo) * iswr
 
 
 def outgoing_longwave_radiation(temperature):
@@ -23,10 +23,10 @@ def outgoing_longwave_radiation(temperature):
     and the transmissivitiy of the atmosphere is also taken into
     account)
     """
-    STEFAN_BOLTZMANN_CONSTANT = 5.67 * 10 ** (-8)
-    TAU = 0.61  # transmissivity of the atmosphere
+    theta = 5.67 * 10 ** (-8)
+    tau = 0.61  # transmissivity of the atmosphere
 
-    return STEFAN_BOLTZMANN_CONSTANT * TAU * temperature ** 4
+    return theta * tau * temperature ** 4
 
 
 def black_body_radiation(temperature):
@@ -34,9 +34,9 @@ def black_body_radiation(temperature):
     Calculation of the black body radiation of the earth
     (earth is assumed to be an approximated black body radiator)
     """
-    STEFAN_BOLTZMANN_CONSTANT = 5.67 * 10 ** (-8)
+    theta = 5.67 * 10 ** (-8)
 
-    return STEFAN_BOLTZMANN_CONSTANT * temperature ** 4
+    return theta * temperature ** 4
 
 
 def temperature_black_body_radiator(olr):
@@ -44,20 +44,20 @@ def temperature_black_body_radiator(olr):
     Calculate the temprature of a black body radiator with the help of
     the outgoing longwave radiation (olr)
     """
-    STEFAN_BOLTZMANN_CONSTANT = 5.67 * 10 ** (-8)
+    theta = 5.67 * 10 ** (-8)
 
-    return (olr / STEFAN_BOLTZMANN_CONSTANT) ** (1/4)
+    return (olr / theta) ** (1/4)
 
 
-def temperature_equilibrium_earth(tau, albedo, Q):
+def temperature_equilibrium_earth(tau, albedo, iswr):
     """
     Calculate the equilibrium temprature of the earth with the help
     of the arguments albedo, transmissivity of the atmosphere and
     the incoming short wave radiation
     """
-    STEFAN_BOLTZMANN_CONSTANT = 5.67 * 10 ** (-8)
+    theta = 5.67 * 10 ** (-8)
 
-    return ((1 - albedo) * Q / (tau * STEFAN_BOLTZMANN_CONSTANT)) ** (1/4)
+    return ((1 - albedo) * iswr / (tau * theta)) ** (1/4)
 
 
 if __name__ == "__main__":
