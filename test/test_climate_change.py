@@ -1,19 +1,15 @@
-from climate_change import energy_balance
+from src.climate_change import absorbed_shortwave_radiation
+
 import pytest
 
 #
 # Testregion
 
-def test_energy_balance():
-    """
-    Test with some normal parameters
-    """
-    assert energy_balance(1, 1, 2) == 2
-
-
-def test_energy_balance_zeroes():
+def test_absorbed_shortwave_radiation():
     """
     Test with all 0 parameters
     """
-    assert energy_balance(0, 0, 0) == 0
+    
+    assert absorbed_shortwave_radiation(0, 0) == 0
+
 
