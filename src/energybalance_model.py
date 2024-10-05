@@ -3,6 +3,8 @@ This functions are the implementations of the zero dimensional
 energy model
 """
 
+import numpy as np
+
 
 def absorbed_shortwave_radiation(albedo=0.299, iswr=341.3):
     """
@@ -56,3 +58,18 @@ def temperature_equilibrium_earth(tau, albedo, iswr):
     theta = 5.67 * 10 ** (-8)
 
     return ((1 - albedo) * iswr / (tau * theta)) ** (1/4)
+
+
+def temporal_evolution_temperature(initial_temperature, dt, n_time_steps, \
+                                   hc, albedo, iswr, tau, theta):
+    """
+    Solution of the time dependent energy balance model 
+    C * dT/dt = (1 - albedo) * Q - tau * theta * T ** 4
+    """
+    solution = np.arange(n_time_steps + 1, dtype='float')
+    solution[0] = float(initial_temperature)
+    for ts in range(0, n_time_steps):
+        solution[ts+1] = solution[ts] + (dt / float(hc)) \
+        * ((1 - albedo) * iswr - theta * tau * solution[ts] ** 4)
+
+    return solution
